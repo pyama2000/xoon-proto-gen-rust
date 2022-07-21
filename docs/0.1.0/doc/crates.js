@@ -1,1 +1,0 @@
-window.ALL_CRATES = ["xoon_proto_gen_rust"];

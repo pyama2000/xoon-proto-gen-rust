@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["SampleServiceServer",""]],"trait":[["SampleService","Generated trait containing gRPC methods that should be implemented for use with SampleServiceServer."]]});
