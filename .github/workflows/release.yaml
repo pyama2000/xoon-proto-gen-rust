@@ -6,14 +6,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build a documentation
-        run: |
-          cargo doc --release --no-deps
-          mkdir -p docs/20
-          cp -r target/doc/* docs/20
-      - name: Add and commit
-        run: |
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git add docs
-          git commit -m "Build documentation"
-          git push origin @
+        run: cargo doc --release --no-deps
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/doc/
