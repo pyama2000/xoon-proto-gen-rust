@@ -1,3 +1,3 @@
-pub mod retty_sample {
-    tonic::include_proto!("retty.sample");
+pub mod kintai_service {
+    tonic::include_proto!("kintai.v1");
 }
