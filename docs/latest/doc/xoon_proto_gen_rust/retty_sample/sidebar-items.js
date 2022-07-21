@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["sample_service_client","Generated client implementations."],["sample_service_server","Generated server implementations."]],"struct":[["SampleRequest",""],["SampleResponse",""]]});
