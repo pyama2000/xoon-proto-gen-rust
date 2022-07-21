@@ -1,0 +1,3 @@
+[submodule "xoon-proto"]
+	path = xoon-proto
+	url = https://github.com/pyama2000/xoon-proto.git
