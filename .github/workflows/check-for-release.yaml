@@ -3,7 +3,7 @@ on:
   pull_request:
     types:
       - opened
-    branches: [ "release/**" ]
+    branches: [ "release/0.0.0" ]
 jobs:
   test:
     runs-on: ubuntu-latest
