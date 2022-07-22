@@ -1,9 +1,11 @@
 name: release
-on: pull_request
-    # types:
-    #   - "closed"
-    # branches:
-    #   - main
+on: push
+# on:
+#   pull_request:
+#     types:
+#       - "closed"
+#     branches:
+#       - main
 jobs:
   push-tag:
     runs-on: ubuntu-latest
