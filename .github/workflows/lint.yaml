@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
       - name: Run cargo clippy
         run: cargo clippy --all-targets --all-features
   format:
@@ -12,6 +16,10 @@ jobs:
     needs: lint
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
       - name: Format codes
         run: cargo fmt
       - name: Commit, add and push codes
