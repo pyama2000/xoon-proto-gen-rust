@@ -1,8 +1,6 @@
-name: release
+name: Check for release
 on:
   pull_request:
-    types:
-      - closed
     branches:
       - "release/*.*.*"
 jobs:
@@ -14,5 +12,10 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
-      - name: Test step
-        run: cargo --version
+      - name: Check submodules status
+        run: |
+          git submodule --remote
+          if ! git diff --exit-code --quiet; then
+            echo "submodule is not up to date"
+            exit 1
+          fi
