@@ -1,0 +1,23 @@
+name: Lint and format code
+on: pull_request
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run cargo clippy
+        run: cargo clippy --all-targets --all-features
+  format:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      - name: Format codes
+        run: cargo fmt
+      - name: Commit, add and push codes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add --all
+          git commit -m "Run `rust fmt`"
+          git push origin @
