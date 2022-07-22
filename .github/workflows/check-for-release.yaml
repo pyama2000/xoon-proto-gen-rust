@@ -21,6 +21,7 @@ jobs:
           fi
       - name: Check crate version
         run: |
-          git describe --tags --abbrev=0
+          latest_tag=$(git describe --tags --abbrev=0)
+          cargo run --bin check_crate_version -- "$latest_tag"
       # - name: Compile packages
       #   run: cargo build
