@@ -21,6 +21,6 @@ jobs:
           fi
       - name: Compile packages
         run: cargo build
-      # DBG: debug step
-      - name: Show cargo version
-        run: cargo --version
+      - name: Check crate version
+        run: |
+          git describe --tags --abbrev=0
