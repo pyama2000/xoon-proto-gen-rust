@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
           submodules: true
       - name: Format codes
         run: cargo fmt
@@ -31,10 +32,11 @@ jobs:
             exit 0
           fi
 
-          git remote set-url origin "https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          # git remote set-url origin "https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add --all
           git commit -m "Run Rustfmt"
           git branch -a
-          git push origin "HEAD:${GITHUB_REF}"
+          # git push origin "HEAD:${GITHUB_REF}"
+          git push origin @
