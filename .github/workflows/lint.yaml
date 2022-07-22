@@ -1,4 +1,4 @@
-name: Lint and format code
+name: Check Rust codes
 on: pull_request
 jobs:
   lint:
