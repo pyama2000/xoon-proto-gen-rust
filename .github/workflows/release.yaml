@@ -15,12 +15,12 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
           submodules: true
       - name: Push tag
         run: |
           # version=$(cargo run --bin crate_version)
           version='0.0.0'
-          git switch release\/0\.0\.0
           git tag "$version"
           git push origin "$version"
   build-doc:
