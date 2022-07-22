@@ -2,7 +2,7 @@ name: Check for release
 on:
   push:
     branches: 
-      - "release/**"
+      - "release/*.*.*"
 jobs:
   test:
     runs-on: ubuntu-latest
