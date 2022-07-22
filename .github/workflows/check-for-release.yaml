@@ -1,9 +1,8 @@
 name: Check for release
 on:
-  pull_request:
-    types:
-      - opened
-    branches: [ "release/0.0.0" ]
+  push:
+    branches: 
+      - "release/**"
 jobs:
   test:
     runs-on: ubuntu-latest
