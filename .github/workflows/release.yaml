@@ -1,8 +1,8 @@
 name: release
 on:
   push:
-    branches:
-      - "main"
+    tags:
+      - "*.*.*"
 jobs:
   build-doc:
     runs-on: ubuntu-latest
