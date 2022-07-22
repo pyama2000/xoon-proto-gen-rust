@@ -1,11 +1,24 @@
 name: release
 on:
   push:
-    branches:
-      - "main"
+    tags:
+      - "*.*.*"
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+      - name: Check if the tag and crate version are same
+        run: |
+          tag=$(git describe --tags --abbrev=0)
+          cargo run --bin check_crate_version -- "$tag"
   build-doc:
     runs-on: ubuntu-latest
+    needs: check
     steps:
       - uses: actions/checkout@v3
         with:
