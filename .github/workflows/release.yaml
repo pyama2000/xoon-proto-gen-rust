@@ -18,7 +18,8 @@ jobs:
           submodules: true
       - name: Push tag
         run: |
-          version=$(cargo run --bin crate_version)
+          # version=$(cargo run --bin crate_version)
+          version='0.0.0'
           git tag "$version"
           git push origin "$version"
   build-doc:
