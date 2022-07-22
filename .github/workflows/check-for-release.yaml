@@ -1,6 +1,8 @@
 name: Check for release
 on:
   pull_request:
+    types:
+      - opened
     branches: [ "release/**" ]
 jobs:
   test:
