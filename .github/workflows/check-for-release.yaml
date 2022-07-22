@@ -2,7 +2,7 @@ name: Check for release
 on:
   pull_request:
     branches:
-      - "release/**.**.**"
+      - 'release/**'
 jobs:
   test:
     runs-on: ubuntu-latest
