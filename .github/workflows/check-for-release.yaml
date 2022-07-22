@@ -1,8 +1,9 @@
 name: Check for release
-on:
-  pull_request:
-    branches:
-      - 'release/**'
+# on:
+#   pull_request:
+#     branches:
+#       - 'release/**'
+on: pull_request
 jobs:
   test:
     runs-on: ubuntu-latest
