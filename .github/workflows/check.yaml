@@ -4,19 +4,19 @@ on:
     paths:
       - "**.rs"
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         submodules: true
-  #     # - name: Run cargo clippy
-  #     #   run: cargo clippy --all-targets --all-features
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+      - name: Run cargo clippy
+        run: cargo clippy --all-targets --all-features
   format:
     runs-on: ubuntu-latest
-    # needs: lint
+    needs: lint
     steps:
       - uses: actions/checkout@v3
         with:
@@ -37,6 +37,4 @@ jobs:
           git config user.email github-actions@github.com
           git add --all
           git commit -m "Run Rustfmt"
-          git branch -a
-          # git push origin "HEAD:${GITHUB_REF}"
           git push origin @
