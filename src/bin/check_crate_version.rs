@@ -6,8 +6,6 @@ fn main() -> std::process::ExitCode {
         return 1.into()
     }
     let latest_tag = args.get(1).unwrap();
-    dbg!(&version);
-    dbg!(&latest_tag);
     if version.eq(latest_tag) {
         eprintln!("Update crate version!");
         return 1.into()
