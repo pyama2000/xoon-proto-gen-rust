@@ -8,10 +8,12 @@ Generate Rust code from [xoon-proto](https://github.com/pyama2000/xoon-proto)
 
 ## Setup
 
-Clone with submodule
-
 ```shell
+# Clone with submodule
 git clone --recursive git@github.com:pyama2000/xoon-proto-gen-rust.git
+
+# Apply Git hooks
+git config core.hooksPath ./scripts/githooks
 ```
 
 ## Release flow

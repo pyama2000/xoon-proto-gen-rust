@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cargo clippy --all-targets --all -- -D warnings
+cargo fmt --check
