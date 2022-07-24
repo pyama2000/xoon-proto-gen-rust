@@ -1,5 +1,5 @@
 [package]
-name = "xoon-proto-gen-rust"
+name = "xoon_proto_gen_rust"
 version = "0.1.2"
 edition = "2021"
 
