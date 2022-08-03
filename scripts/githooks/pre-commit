@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cargo clippy --all-targets --all -- -D warnings
+cargo clippy --bins --tests --examples --all -- -D warnings
 cargo fmt --check
