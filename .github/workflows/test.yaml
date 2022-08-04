@@ -1,0 +1,19 @@
+name: Test workflow
+on: push
+
+jobs:
+  push-tag:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          submodules: true
+      - name: Push tag
+        run: |
+          git tag "test-${{ github.sha }}"
+          git push origin "test-${{ github.sha }}"
