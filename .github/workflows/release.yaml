@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
       - name: Push tag when the latest tag and crate version are not same
         run: |
           tag=$(git describe --tags --abbrev=0)
