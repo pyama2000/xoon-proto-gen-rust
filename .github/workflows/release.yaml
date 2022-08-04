@@ -1,24 +1,24 @@
 name: release
 on:
   push:
-    tags:
-      - "*.*.*"
+    branches:
+      - "main"
+
 jobs:
-  check:
+  push-tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-          submodules: true
-      - name: Check if the tag and crate version are same
+      - name: Push tag when the latest tag and crate version are not same
         run: |
           tag=$(git describe --tags --abbrev=0)
           version=$(cargo run --bin crate_version)
           if [[ "$tag" != "$version" ]]; then
-            echo 'Tag and crate version are not same!'
-            exit 1
+            git tag "$version"
+            git push origin "$version"
           fi
   build-doc:
     runs-on: ubuntu-latest
