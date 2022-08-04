@@ -1,5 +1,8 @@
 # xoon-proto-gen-rust
 
+[![release](https://github.com/pyama2000/xoon-proto-gen-rust/actions/workflows/release.yaml/badge.svg)](https://github.com/pyama2000/xoon-proto-gen-rust/actions/workflows/release.yaml)
+[![doc](https://github.com/pyama2000/xoon-proto-gen-rust/actions/workflows/deploy-doc.yaml/badge.svg)](https://github.com/pyama2000/xoon-proto-gen-rust/actions/workflows/deploy-doc.yaml)
+
 Generate Rust code from [xoon-proto](https://github.com/pyama2000/xoon-proto)
 
 ## Prerequisites
