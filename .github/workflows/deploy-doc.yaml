@@ -14,6 +14,7 @@ jobs:
           submodules: true
       - uses: arduino/setup-protoc@v1
       - name: Build a documentation
+      - uses: Swatinem/rust-cache@v2
         run: cargo doc --release --no-deps
       - uses: actions/upload-pages-artifact@v1
         with:
