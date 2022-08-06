@@ -2,7 +2,7 @@ name: Deploy cargo doc
 on:
   push:
     tags:
-      - "*.*.*"
+      - "[0-9]+.[0-9]+.[0-9]+"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,8 +13,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
       - uses: arduino/setup-protoc@v1
-      - name: Build a documentation
       - uses: Swatinem/rust-cache@v2
+      - name: Build a documentation
         run: cargo doc --release --no-deps
       - uses: actions/upload-pages-artifact@v1
         with:
