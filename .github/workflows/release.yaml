@@ -12,6 +12,8 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
+      - uses: arduino/setup-protoc@v1
+      - uses: Swatinem/rust-cache@v2
       - name: Push tag when the latest tag and crate version are not same
         run: |
           tag=$(git describe --tags --abbrev=0)

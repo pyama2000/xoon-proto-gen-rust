@@ -9,6 +9,8 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
+      - uses: arduino/setup-protoc@v1
+      - uses: Swatinem/rust-cache@v2
       - name: Run cargo clippy
         run: cargo clippy --bins --tests --examples --all -- -D warnings
   format:
@@ -49,5 +51,7 @@ jobs:
             echo "submodule is not up to date"
             exit 1
           fi
+      - uses: arduino/setup-protoc@v1
+      - uses: Swatinem/rust-cache@v2
       - name: Compile packages
         run: cargo build
