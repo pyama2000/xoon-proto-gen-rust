@@ -12,5 +12,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             &["xoon-proto/proto/notification/v1/notification_service.proto"],
             &["xoon-proto/proto"],
         )?;
+    tonic_build::configure()
+        .file_descriptor_set_path(out_dir.join("release_service_descriptor.bin"))
+        .compile(
+            &["xoon-proto/proto/automation/v1/release_service.proto"],
+            &["xoon-proto/proto/automation/v1"],
+        )?;
     Ok(())
 }
