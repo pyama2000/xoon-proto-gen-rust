@@ -1,4 +1,4 @@
-name: Deploy cargo doc
+name: doc
 on:
   push:
     tags:
