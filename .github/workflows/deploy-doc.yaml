@@ -14,6 +14,8 @@ jobs:
           submodules: true
       - uses: arduino/setup-protoc@v1
       - uses: actions-rs/toolchain@v1
+        with:
+          override: true
       - uses: Swatinem/rust-cache@v2
       - name: Build a documentation
         run: cargo doc --release --no-deps

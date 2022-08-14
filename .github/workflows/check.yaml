@@ -11,6 +11,8 @@ jobs:
           submodules: true
       - uses: arduino/setup-protoc@v1
       - uses: actions-rs/toolchain@v1
+        with:
+          override: true
       - uses: Swatinem/rust-cache@v2
       - name: Run cargo clippy
         run: cargo clippy --bins --tests --examples --all -- -D warnings
@@ -25,6 +27,8 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           submodules: true
       - uses: actions-rs/toolchain@v1
+        with:
+          override: true
       - name: Format codes
         run: cargo fmt
       - name: Commit, add and push codes
@@ -55,6 +59,8 @@ jobs:
           fi
       - uses: arduino/setup-protoc@v1
       - uses: actions-rs/toolchain@v1
+        with:
+          override: true
       - uses: Swatinem/rust-cache@v2
       - name: Compile packages
         run: cargo build
