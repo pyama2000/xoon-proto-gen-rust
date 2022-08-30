@@ -1,6 +1,6 @@
 [package]
 name = "xoon_proto_gen_rust"
-version = "0.1.11"
+version = "0.1.12"
 edition = "2021"
 
 [dependencies]
